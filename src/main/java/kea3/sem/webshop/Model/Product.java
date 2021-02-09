@@ -1,4 +1,4 @@
-package Model;
+package kea3.sem.webshop.Model;
 
 public class Product {
     private long id;
@@ -6,6 +6,8 @@ public class Product {
     private double price;
 
 
+    public Product() {
+    }
 
     public Product(long id, String name, double price) {
         this.id = id;

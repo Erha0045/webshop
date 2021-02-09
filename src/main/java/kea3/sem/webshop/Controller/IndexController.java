@@ -1,7 +1,7 @@
-package Controller;
+package kea3.sem.webshop.Controller;
 
-import Model.Product;
-import Service.ProductService;
+import kea3.sem.webshop.Model.Product;
+import kea3.sem.webshop.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,34 +19,35 @@ public class IndexController {
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("produ",productService.readAll());
-        return ("index");
+        return "index";
     }
 
     @GetMapping("/create")
     public String create(){
-        return ("create");
+        return "create";
     }
     @PostMapping("/create")
-    public String create(@ModelAttribute Product produ){
-        productService.create(produ);
+    public String create(@ModelAttribute Product product){
+        productService.create(product);
         return "redirect:/";
-    }
-    @GetMapping("/update/{id}")
-    public String update(@PathVariable("id") long id, Model model){
-        model.addAttribute("produ", productService.read(id));
-        return "update";
     }
 
+    @GetMapping("/update/{id}")
+    public String update(@PathVariable("id") long id, Model model){
+        model.addAttribute("product", productService.read(id));
+        return ("update");
+    }
     //update product
     @PostMapping ("/update")
-    public String update(@ModelAttribute Product produ){
+    public String update(@ModelAttribute Product product){
         //update by using update service
-        productService.update(produ);
+        productService.update(product);
         return "redirect:/";
     }
+
     //delete product
     @GetMapping ("/delete/{id}")
-    public String delete(@PathVariable("id") long id, Model model){
+    public String delete(@PathVariable("id") long id){
         productService.delete(id);
         return "redirect:/";
     }

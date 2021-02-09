@@ -9,11 +9,11 @@
 
     <form action="/update" method="post">
         <div>
-            <input type="hidden" name="id" th:value="${produ.id}">
-            <input type="text" name="navn" th:value="${produ.name}">
+            <input type="hidden" name="id" th:value="${product.id}">
+            <input type="text" name="name" th:value="${product.name}">
         </div>
         <div>
-            <input type="text" name="slags" th:value="${produ.price}">
+            <input type="text" name="price" th:value="${product.price}">
         </div>
         <div>
             <input type="submit" value="Opdater">

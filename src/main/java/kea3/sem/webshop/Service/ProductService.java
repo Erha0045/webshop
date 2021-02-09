@@ -1,7 +1,7 @@
-package Service;
+package kea3.sem.webshop.Service;
 
-import Model.Product;
-import Repository.ProductRepository;
+import kea3.sem.webshop.Model.Product;
+import kea3.sem.webshop.Repository.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,27 +12,27 @@ import java.util.List;
 public class ProductService {
 
     @Autowired
-    ProductRepository productRepository;
+    ProductRepo productRepo;
 
     public List<Product> readAll(){
         List<Product> products = new ArrayList<>();
-        for (Product product:productRepository.readAll()) {
+        for (Product product: productRepo.readAll()) {
             products.add(product);
         }
         return products;
     }
     public void create(Product product){
-        productRepository.create(product);
+        productRepo.create(product);
     }
 
-    public boolean update(Product product){
-        boolean updateOk = productRepository.update(product);
-        return updateOk;
+    public void update(Product product){
+        productRepo.update(product);
     }
     public Product read(long id){
-        return productRepository.read(id);
+        return productRepo.read(id);
     }
-    public boolean delete(Long id){
-        return productRepository.delete(id);
+    public void delete(long id){
+        productRepo.delete(id);
     }
+
 }
