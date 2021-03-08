@@ -11,6 +11,10 @@ import java.util.List;
 @Service
 public class ProductService {
 
+    //Til tirsdag (lektie): lav en RestService products.
+    // Der skal være to metoder
+    // 1. Getmapping("/products") som returnerer alle varer
+    // 2. Getmapping("/products/{id}") som returnerer varen med specifik id
     @Autowired
     ProductRepo productRepo;
 
@@ -33,6 +37,9 @@ public class ProductService {
     }
     public void delete(long id){
         productRepo.delete(id);
+    }
+    public Product search(long id){
+        return productRepo.read(id);
     }
 
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+<h1>Søg efter produkt</h1>
+
+<form action="/search" method="get">
+    <div>
+        <input type="text" name="id" th:value="${product.id}">
+<!--        <input type="text" name="name" th:value="${product.name}">-->
+    </div>
+    <div>
+<!--        <input type="text" name="price" th:value="${product.price}">-->
+    </div>
+    <div>
+        <input type="submit" value="Search">
+    </div>
+</form>
+
+</body>
+</html>
